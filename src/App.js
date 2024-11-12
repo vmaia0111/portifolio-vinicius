@@ -13,13 +13,13 @@ import { motion } from "framer-motion";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   const toggleTheme = () => {
     setDarkMode(!darkMode);
   };
 
   useEffect(() => {
-    // Adiciona ou remove a classe 'dark-mode' no <body> dependendo do estado
     if (darkMode) {
       document.body.classList.add("dark-mode");
     } else {
@@ -27,51 +27,48 @@ function App() {
     }
   }, [darkMode]);
 
+  // Detecta a seção ativa na tela
+  useEffect(() => {
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div>
-      <Header toggleTheme={toggleTheme} darkMode={darkMode} />
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
+      <Header toggleTheme={toggleTheme} darkMode={darkMode} activeSection={activeSection} />
+      <motion.div id="home" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
         <Home />
       </motion.div>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.5 }}
-      >
+      <motion.section id="about" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.5 }}>
         <About />
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-      >
+      </motion.section>
+      <motion.section id="experience" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1 }}>
         <Experience />
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.5 }}
-      >
+      </motion.section>
+      <motion.section id="projects" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1.5 }}>
         <Projects />
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 2 }}
-      >
+      </motion.section>
+      <motion.section id="skills" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 2 }}>
         <Skills />
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 2.5 }}
-      >
+      </motion.section>
+      <motion.section id="contact" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 2.5 }}>
         <Contact />
-      </motion.div>
+      </motion.section>
       <Footer />
     </div>
   );

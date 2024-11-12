@@ -22,7 +22,7 @@ body.dark-mode p,
 body.dark-mode li,
 body.dark-mode .experience-item h4,
 body.dark-mode .experience-item p,
-body.dark-mode .experience-item ul li {
+body.dark-mode .experience-item ul li { 
   color: #cccccc; /* Um cinza claro para melhorar a legibilidade */
 }
 
@@ -406,4 +406,15 @@ footer {
   .skill-container {
     justify-content: center;
   }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Indicador de link ativo na navegação */
+.nav-menu ul li.active a {
+  background-color: #ffdd57;
+  color: #333;
+  border-radius: 5px;
 }
