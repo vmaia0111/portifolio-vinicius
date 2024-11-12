@@ -5,7 +5,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
-import GitHubRepos from "./components/GitHubRepos";
+//import GitHubRepos from "./components/GitHubRepos";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -71,10 +71,10 @@ function App() {
         <Projects />
       </motion.section>
 
-      {/* Nova seção de Repositórios do GitHub */}
-      <motion.section id="github-repos" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1.8 }}>
+      {/* Nova seção de Repositórios do GitHub 
+      {/*<motion.section id="github-repos" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1.8 }}>
         <GitHubRepos />
-      </motion.section>
+      </motion.section>*/}
 
       <motion.section id="skills" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 2 }}>
         <Skills />
