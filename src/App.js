@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
+import GitHubRepos from "./components/GitHubRepos";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -51,24 +52,38 @@ function App() {
   return (
     <div>
       <Header toggleTheme={toggleTheme} darkMode={darkMode} activeSection={activeSection} />
-      <motion.div id="home" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
+
+      {/* Seção com efeito parallax para Home */}
+      <motion.section id="home" className="parallax" style={{ backgroundImage: `url('/path/to/home-background.jpg')` }}>
         <Home />
-      </motion.div>
-      <motion.section id="about" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.5 }}>
+      </motion.section>
+
+      {/* Seção Sobre Mim com efeito parallax */}
+      <motion.section id="about" className="parallax" style={{ backgroundImage: `url('/path/to/about-background.jpg')` }}>
         <About />
       </motion.section>
+
       <motion.section id="experience" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1 }}>
         <Experience />
       </motion.section>
+
       <motion.section id="projects" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1.5 }}>
         <Projects />
       </motion.section>
+
+      {/* Nova seção de Repositórios do GitHub */}
+      <motion.section id="github-repos" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1.8 }}>
+        <GitHubRepos />
+      </motion.section>
+
       <motion.section id="skills" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 2 }}>
         <Skills />
       </motion.section>
+
       <motion.section id="contact" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 2.5 }}>
         <Contact />
       </motion.section>
+
       <Footer />
     </div>
   );

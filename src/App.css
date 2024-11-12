@@ -418,3 +418,72 @@ html {
   color: #333;
   border-radius: 5px;
 }
+
+#github-repos {
+  padding: 4rem 1rem;
+  background-color: #f0f4f8;
+  text-align: center;
+}
+
+.repo-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.repo-card {
+  background-color: #fff;
+  color: #333;
+  border-radius: 8px;
+  padding: 1.5rem;
+  width: 300px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.repo-card h3 {
+  color: #0044cc;
+}
+
+.repo-card a {
+  color: #0044cc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.repo-card a:hover {
+  text-decoration: underline;
+}
+
+/* Modo escuro da seção de repositórios */
+.dark-mode #github-repos {
+  background-color: #1e1e1e;
+}
+
+.dark-mode .repo-card {
+  background-color: #333;
+  color: #e0e0e0;
+}
+
+.dark-mode .repo-card h3,
+.dark-mode .repo-card a {
+  color: #4a90e2;
+}
+
+
+.parallax {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  margin-bottom: 2rem;
+}
+
+.parallax-content {
+  position: relative;
+  padding: 4rem 1rem;
+  color: white;
+  text-align: center;
+}
