@@ -12,6 +12,20 @@ body {
   background-color: #f4f4f9;
 }
 
+/* Tema escuro */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark-mode p,
+body.dark-mode li,
+body.dark-mode .experience-item h4,
+body.dark-mode .experience-item p,
+body.dark-mode .experience-item ul li {
+  color: #cccccc; /* Um cinza claro para melhorar a legibilidade */
+}
+
 /* Header e Navegação */
 header {
   background: #0044cc;
@@ -40,6 +54,15 @@ header h1 {
   cursor: pointer;
 }
 
+.theme-toggle {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Navegação padrão */
 .nav-menu ul {
   list-style-type: none;
   display: flex;
@@ -197,6 +220,20 @@ header h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+}
+
+/* Título da Seção de Projetos */
+#projects h2 {
+  font-size: 2rem;
+  color: #0044cc;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+} 
+
+/* Alteração da cor do título para tema escuro */
+body.dark-mode #projects h2 {
+  color: 0;
 }
 
 .project-container {
@@ -210,11 +247,17 @@ header h1 {
 
 .project-card {
   background-color: #fff;
+  color: #333;
   border-radius: 10px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
+}
+
+body.dark-mode .project-card {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
 }
 
 .project-card:hover {
@@ -232,6 +275,10 @@ header h1 {
   font-size: 1rem;
   color: #666;
   margin-bottom: 1rem;
+}
+
+body.dark-mode .project-card p {
+  color: #cccccc;
 }
 
 .project-card a {
@@ -314,13 +361,11 @@ footer {
 
 /* Responsividade */
 @media (max-width: 768px) {
-  /* Navegação */
   nav ul {
     flex-direction: column;
     gap: 10px;
   }
 
-  /* Ajuste de fontes e espaçamentos em telas menores */
   .intro h2 {
     font-size: 1.8rem;
   }

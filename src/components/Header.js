@@ -1,7 +1,8 @@
 // src/components/Header.js
 import React, { useState } from "react";
+import { FaSun, FaMoon } from "react-icons/fa"; // Importa os ícones de sol e lua
 
-function Header() {
+function Header({ toggleTheme, darkMode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -11,9 +12,17 @@ function Header() {
   return (
     <header>
       <h1>Vinicius Maia da Silva</h1>
-      <button className="hamburger" onClick={toggleMenu}>
-        ☰
-      </button>
+      
+      <div className="header-controls">
+        <button className="theme-toggle" onClick={toggleTheme}>
+          {darkMode ? <FaSun /> : <FaMoon />}
+        </button>
+        
+        <button className="hamburger" onClick={toggleMenu}>
+          ☰
+        </button>
+      </div>
+      
       <nav className={isMenuOpen ? "nav-menu open" : "nav-menu"}>
         <ul>
           <li><a href="#about">Sobre Mim</a></li>
